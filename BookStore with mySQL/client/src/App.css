@@ -1,0 +1,75 @@
+.App {
+  padding: 0px 100px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.books {
+  display: flex;
+  gap: 30px;
+}
+.book {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.delete {
+  border: 1px solid pink;
+  color: red;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  outline: none;
+}
+.update {
+  border: 1px solid aquamarine;
+  color: blueviolet;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  outline: none;
+}
+img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  background-color: rgb(221, 191, 248);
+}
+.form {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.form > input[type="text"],
+.form > input[type="number"],
+.form > textarea {
+  font-size: 1.11rem;
+  padding: 0.4rem;
+  border: 1px solid gray;
+  outline: none;
+}
+.form > button[type="submit"] {
+  padding: 0.4rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgb(254, 150, 113);
+  color: white;
+  border:none;
+  outline: none;
+}
+textarea {
+  width: 410px;
+  height: 148px;
+  resize: none;
+}
+/*style="width: 410px; height: 148px;"*/

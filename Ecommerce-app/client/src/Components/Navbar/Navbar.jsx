@@ -10,9 +10,11 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import Cart from "../Cart/Cart";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const products = useSelector((state) => state.cart.products);
 
   return (
     <div className="navbar">
@@ -34,11 +36,6 @@ const Navbar = () => {
           <div className="item">
             <Link className="link" to="/products/2">
               Men
-            </Link>
-          </div>
-          <div className="item">
-            <Link className="link" to="/products/3">
-              Kids
             </Link>
           </div>
         </div>
@@ -69,7 +66,7 @@ const Navbar = () => {
               <span className="iconSpan">
                 <ShoppingCartOutlinedIcon className="outlinedIcon" />
                 <ShoppingCartIcon className="filledIcon" />
-                <span className="cartProductAmount">0</span>
+                <span className="cartProductAmount">{products.length}</span>
               </span>
             </div>
           </div>

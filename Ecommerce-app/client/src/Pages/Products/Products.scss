@@ -16,7 +16,16 @@
         .inputItem{
             display: flex;
             gap: 8px;
+            margin-bottom: 10px;
         
+
+            input[type="checkbox"]{
+                cursor: pointer;
+            }
+            label{
+                cursor: pointer;
+                text-transform: uppercase;
+            }
         }
     }
     }
@@ -28,7 +37,7 @@
             width: 100%;
             object-fit: cover;
             .cartImg{
-                height: 400px;
+                height: 200px;
                 object-fit: cover;
                 width: 100%;
             }

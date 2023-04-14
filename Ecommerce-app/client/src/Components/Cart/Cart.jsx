@@ -1,60 +1,59 @@
 import React from "react";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import "./Cart.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItem, resetCart } from "../../redux/cartReducer";
+import { makeRequest } from "../../makeRequest";
+import {loadStripe} from '@stripe/stripe-js';
 const Cart = () => {
-  const data = [
-    {
-      id: 1,
-      image1:
-        "https://images.pexels.com/photos/600195/pexels-photo-600195.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-      image2:
-        "https://images.pexels.com/photos/3908800/pexels-photo-3908800.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      title: "Bag",
-      desc:"description of this product should be very very very great good greatest the best you know ,you've never seen such a good product for sure,or...have you ever..the I guess this product is still the best product..don't miss this..",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-    {
-      id: 2,
-      image1:
-        "https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      image2:
-        "https://images.pexels.com/photos/1961795/pexels-photo-1961795.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      title: "Perfume",
-      desc:"description of this product should be very very very great good greatest the best you know ,you've never seen such a good product for sure,or...have you ever..the I guess this product is still the best product..don't miss this..",
-      isNew: true,
-      oldPrice: 19,
-      price: 12,
-    },
-  ];
+ const products=useSelector(state=>state.cart.products)
+ const dispatch=useDispatch()
+    const totalPrice=()=>{
+      let total=0
+      products.forEach((item)=>{
+        total+=item.quantity*item.price;
+      })
+      return total.toFixed(2)
+    }
+    const stripePromise = loadStripe(
+      "pk_test_51MwKa2SCGR7pgSKWQyhteCHiR6MzLinV4grrvfZwqba5QbwxBNGRcxWeuTneiiZfYCAJyp2xbHtVwSDb8FwaCcst00BQQqe7HF"
+    );
+    const handlePayment = async () => {
+      try {
+        const stripe = await stripePromise;
+        const res = await makeRequest.post("/orders", {
+          products,
+        });
+        await stripe.redirectToCheckout({
+          sessionId: res.data.stripeSession.id,
+        });
+  
+      } catch (err) {
+        console.log(err);
+      }
+    };
   return (
     <div className="cart">
       <h2>Products In Your Cart</h2>
-      {data.map((item) => (
+      {products.map((item) => (
         <div className="item" key={item.id}>
-          <img src={item.image1} alt="" />
+          <img src={ process.env.REACT_APP_UPLOAD_URL + item.image} alt="" />
           <div className="details">
             <h3>{item.title}</h3>
             <p>{item.desc?.substring(0, 100)}</p>
-            {/* <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt
-              asperiores culpa molestiae modi, neque facilis voluptatem
-              temporibus! Nobis dolore delectus laborum fugit quisquam. Incidunt
-              ab qui, nemo illum reiciendis voluptate!
-            </p> */}
-            <div className="price">1 X ${item.price}</div>
+            <div className="price">{item.quantity}X ${item.price}</div>
           </div>
-          <DeleteOutlineOutlinedIcon className="deleteButton"/>
+          <DeleteOutlineOutlinedIcon className="deleteButton" onClick={()=>dispatch(removeItem(item.id))}  />
         </div>
       ))}
 
       <div className="total">
         <span>SUBTOTAL</span>
-        &nbsp;&nbsp;<span>$123</span>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>${totalPrice()}</span>
       </div>
-      <button>PROCEED TO CHECKOUT</button>
-      <span className="reset">RESET CART</span>
+
+      <button onClick={handlePayment}>PROCEED TO CHECKOUT</button>
+      <span className="reset" onClick={()=>dispatch(resetCart())}  >RESET CART</span>
     </div>
   );
 };

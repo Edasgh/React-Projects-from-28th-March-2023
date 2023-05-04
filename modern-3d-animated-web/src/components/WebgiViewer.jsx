@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   useEffect,
 } from "react";
+
 import {
   ViewerApp,
   AssetManagerPlugin,
@@ -33,7 +34,6 @@ const WebgiViewer = forwardRef((props, ref) => {
   const canvasContainerRef = useRef(null);
   const [previewMode, setPreviewMode] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
 
   useImperativeHandle(ref, () => ({
     triggerPreview() {

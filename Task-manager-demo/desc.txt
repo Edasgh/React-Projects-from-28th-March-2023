@@ -1,0 +1,9 @@
+Make sure to install the required dependencies using npm or yarn. For example, you can run npm install express mongoose cors in the backend directory and npm install react react-dom in the frontend directory.
+
+With these files in place, you can start the application by running the backend server with node server.js in the backend directory, and running the frontend with npm start or yarn start in the frontend directory. This will launch the application on http://localhost:3000, where you can access the task management interface.
+
+Please note that this is a basic example and may require further enhancements and error handling based on your specific requirements.
+
+
+
+3RD CODE

@@ -1,0 +1,9 @@
+Install the required dependencies:
+
+React: npx create-react-app recipe-app
+Axios: npm install axios
+Replace the default src/App.js file with the code from the App.js code above.
+
+Run the frontend server: cd recipe-app then npm start
+
+Now, you should have a basic MERN stack recipe-sharing app where users can post recipes, browse existing recipes, and view the recipe list. Remember to adjust the code based on your specific requirements and further enhance the app with features like user authentication, recipe search, and saving recipes.

@@ -1,0 +1,3 @@
+Remember to create a public/uploads directory in the root of your project folder to store the uploaded images.
+
+This code provides a basic structure for a real-time chat application using the MERN stack. You can further enhance it with user authentication, group chat functionality, error handling, and UI improvements based on your specific requirements.

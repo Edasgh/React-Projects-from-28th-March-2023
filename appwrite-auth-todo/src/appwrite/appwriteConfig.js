@@ -10,4 +10,6 @@ export const account = new Account(client);
 
 //database
 
-export const databases = new Databases(client, "64663f99f140b3707491");
+// export const databases = new Databases(client, DATABASE_ID);
+export const databases = new Databases(client,"64663f99f140b3707491")
+

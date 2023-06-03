@@ -1,0 +1,6 @@
+export {default as Navbar } from "./Navbar/Navbar"
+export {default as Footer} from "./Footer/Footer"
+export {default as Contact} from "./Contact-us/Contact"
+export {default as CreateProduct} from "./Create-Product/CreateProduct"
+export {default as UpdateProduct} from "./Update-Product/UpdateProduct"
+export {default as UploadImages} from "./Upload-img/UploadImages"

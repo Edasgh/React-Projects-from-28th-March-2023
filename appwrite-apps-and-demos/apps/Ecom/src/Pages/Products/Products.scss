@@ -1,0 +1,64 @@
+.AllProducts{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    .loader{
+        font-size: 4rem;
+        font-weight: bold;
+    }
+
+    .Product{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 326px;
+            height: 360px;
+            border-radius: 20px;
+        }
+        .name{
+            h2{
+                font-size: 2.2rem;
+            }
+        }
+
+        .delBtn{
+            cursor: pointer;
+            color: #fff;
+            background-color: #e88c98;
+          
+           
+               padding: .5rem 3.5rem;
+               font-size: 1.13rem;
+               outline: none;
+               border: none;
+               border-radius: .4rem;
+    
+               &:hover{
+                background-color: rgb(251, 53, 99);
+               }
+           }
+
+           .updateBtn{
+            cursor: pointer;
+            color: #fff;
+            background-color: #d06edf;
+           
+               padding: .5rem 3.5rem;
+               font-size: 1.13rem;
+               outline: none;
+               border: none;
+               border-radius: .4rem;
+    
+               &:hover{
+               
+                background-color: rgb(156, 24, 196);
+               }
+           }
+    }
+}

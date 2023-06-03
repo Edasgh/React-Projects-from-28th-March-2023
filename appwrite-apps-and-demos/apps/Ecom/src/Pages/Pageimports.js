@@ -1,0 +1,10 @@
+export {default as Home} from "./Home/Home";
+export {default as Login} from "./Login/Login";
+export {default as Signup} from "./Signup/Signup";
+export {default as Product} from "./Product/Product";
+export {default as Products} from "./Products/Products";
+export {default as ViewProducts} from "./View_products/ViewProducts";
+export {default as Profile} from "./Profile/Profile";
+export {default as Sell} from "./Sell/Sell";
+export {default as ViewImages} from "./View-images/ViewImages";
+export {default as SelectCat} from "./SelectCat/SelectCat"

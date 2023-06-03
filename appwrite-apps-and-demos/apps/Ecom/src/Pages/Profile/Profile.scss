@@ -1,0 +1,70 @@
+.profile {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .user-details {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    h2{
+      font-size: 2rem;
+      color: rgb(135, 133, 133);
+    }
+    p {
+
+      font-size: 1.1rem;
+
+      span{
+        font-weight: bold;
+      }
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: #fff;
+      padding: 0.5rem 3.5rem;
+      font-size: 1.13rem;
+      outline: none;
+      border: none;
+      border-radius: 0.4rem;
+    }
+    .logout{
+      background-color: #666867;
+      &:hover{
+        
+        background-color: #515554;
+      }
+    }
+    .sell{
+      background-color: #5a98fa;
+      &:hover{
+
+        background-color: #2879fe;
+      }
+    }
+  }
+
+  .buttons {
+    height: 55vh;
+    width: 50vh;
+    margin: auto;
+    button {
+      margin-top: 2rem;
+      text-align: center;
+      cursor: pointer;
+      color: #fff;
+      background-color: #229637;
+      padding: 0.5rem 3.5rem;
+      font-size: 1.13rem;
+      outline: none;
+      border: none;
+      border-radius: 0.4rem;
+    }
+  }
+}

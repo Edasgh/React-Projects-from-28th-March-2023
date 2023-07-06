@@ -26,7 +26,7 @@ button{
 }
 
 .plus,.minus{
-  color: #d7cfcf;
+  color: #eae4e4;
 }
 
 .plus{
@@ -36,6 +36,7 @@ button{
 
 .plus:hover{
   background-color: #126412;
+  color: #ffff;
 }
 
 .minus{
@@ -44,6 +45,7 @@ button{
 
 .minus:hover{
   background-color: #a22222;
+  color: #ffff;
 }
 
 p{

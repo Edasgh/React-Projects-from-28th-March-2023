@@ -49,6 +49,9 @@ export const fetchProducts = createAsyncThunk('products/fetch', async () => {
 
 // export function fetchProducts() {
 //     return async function fetchProductThunk(dispatch, getState) {
+    /* You can add the getState() or not [your choice :))]  */
+
+
 //         dispatch(setStatus(STATUSES.LOADING));
 //         try {
 //             const res = await fetch('https://fakestoreapi.com/products');

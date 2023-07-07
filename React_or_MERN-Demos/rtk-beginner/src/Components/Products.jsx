@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
 import { fetchProducts } from '../store/productSlice';
 import { STATUSES } from '../store/productSlice';
+
+
+
 const Products = () => {
 
     // const [products, setProducts] = useState([])

@@ -1,3 +1,0 @@
-Make sure you have MongoDB running locally on your machine before running the code. You can adjust the MongoDB connection URL in the backend code (server.js) to match your MongoDB configuration.
-
-Note: This is a simplified example and may require additional error handling and security measures before using it in a production environment.

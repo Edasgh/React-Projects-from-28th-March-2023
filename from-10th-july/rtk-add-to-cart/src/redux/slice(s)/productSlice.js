@@ -18,7 +18,7 @@ const productSlice = createSlice({
     reducers:{
 
     },
-
+// extrareducers help the function to fetch products and show them accordingly on the UI
     extraReducers:(builder)=>{
         builder
 
@@ -43,7 +43,8 @@ const productSlice = createSlice({
 
 })
 
-export const {extraReducers} = productSlice.actions;
+export const {extraReducers} = productSlice.actions; // extraReducers are actions here
+
 export default productSlice.reducer;
 
 

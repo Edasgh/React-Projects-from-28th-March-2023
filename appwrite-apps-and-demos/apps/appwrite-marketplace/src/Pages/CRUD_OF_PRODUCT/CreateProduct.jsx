@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { v4 as uuidv4 } from "uuid";
 import { databases, storage } from "../../Appwrite/appwrite_config";
 import { useNavigate } from "react-router-dom";
 import { ID } from "appwrite";
+import "dotenv/config";
+
 
 const CreateProduct = () => {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ const CreateProduct = () => {
     e.preventDefault();
   
     const promise = databases.createDocument(
-      "64688e0c85f3f147569a",
-      "64688e13df289f044dd5",
+     process.env.DB_ID,
+      process.env.COLL_ID,
       ID.unique(),
       {
         Name,
@@ -45,7 +46,7 @@ const CreateProduct = () => {
 
   useEffect(() => {
     setLoader(true);
-    const promise = storage.listFiles("646b2fded75059954814");
+    const promise = storage.listFiles(process.env.BUCKET_ID);
 
     promise.then(
       function (response) {
@@ -60,7 +61,7 @@ const CreateProduct = () => {
   }, []);
 
   const fileHref = (id) => {
-    const result = storage.getFileView("646b2fded75059954814", id);
+    const result = storage.getFileView(process.env.BUCKET_ID, id);
     return (result.href); // Resource URL
   };
 

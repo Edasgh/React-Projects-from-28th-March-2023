@@ -28,17 +28,17 @@ const Navbar = () => {
           </div>
 
           <div className="item">
-            <button className="link" onClick={()=>{navigate("/products/647592ad2898cd9ef7f7");window.location.reload()}}>
+            <button className="link" onClick={()=>{navigate(`/products/${process.env.WOMEN_COLL_ID}`);window.location.reload()}}>
               Women
             </button>
           </div>
           <div className="item">
-            <button className="link" onClick={()=>{navigate("/products/6475929e6225730818af"); window.location.reload()}}>
+            <button className="link" onClick={()=>{navigate(`/products/${process.env.MEN_COLL_ID}`); window.location.reload()}}>
               Men
             </button>
           </div>
           <div className="item">
-            <button className="link" onClick={()=>{navigate("/products/647592b520cac59e4f93");window.location.reload()}}>
+            <button className="link" onClick={()=>{navigate(`/products/${process.env.KIDS_COLL_ID}`);window.location.reload()}}>
              Kids
             </button>
           </div>

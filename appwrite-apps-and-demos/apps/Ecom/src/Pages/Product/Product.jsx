@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { databases } from "../../Appwrite/appwrite_config";
 import { useParams } from "react-router-dom";
 import "./Product.scss"
+import "dotenv/config";
 const Product = () => {
   const params = useParams();
   const [Product_name, setProduct_name] = useState("");
@@ -14,7 +15,7 @@ const Product = () => {
 
   useEffect(() => {
     const promise = databases.getDocument(
-     "647592808a5c92596610",
+     process.env.PRODUCTDB_ID,
     params.coll_id,
       params.id
     );

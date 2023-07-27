@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { databases } from "../appwrite/appwriteConfig";
-// import { v4 as uuidv4 } from "uuid";
+import "dotenv/config";
+
 
 const Todos = () => {
   const [todos,setTodos] = useState();
@@ -8,8 +9,8 @@ const Todos = () => {
 
   useEffect(()=>{
    setLoader(true);
-   const getTodos=databases.listDocuments( "64663f99f140b3707491",
-   "64663fc269592731e80b")
+   const getTodos=databases.listDocuments( process.env.DB_ID,
+   process.env.COLL_ID)
 
    getTodos.then(
     function(response){
@@ -23,8 +24,8 @@ const Todos = () => {
   },[])
 
  const deleteTodo=(id)=>{
-  const promise = databases.deleteDocument("64663f99f140b3707491",
-  "64663fc269592731e80b",id)
+  const promise = databases.deleteDocument(process.env.DB_ID,
+   process.env.COLL_ID,id)
   promise.then(
     function(response){
       console.log(response)

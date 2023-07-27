@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { storage } from "../../Appwrite/appwrite_config";
+import "dotenv/config";
+
 const AllImages = () => {
   const [images, setImages] = useState([]);
   const [loader, setLoader] = useState(false);
   useEffect(() => {
     setLoader(true);
-    const promise = storage.listFiles("646b2fded75059954814");
+    const promise = storage.listFiles(process.env.BUCKET_ID);
 
     promise.then(
       function (response) {

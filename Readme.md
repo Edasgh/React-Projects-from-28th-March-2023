@@ -2,10 +2,6 @@
 
 ### The demo projects of this repo are the ChatGPT generated code files
 
- 
- # TSLOG : [private]
- Source code : https://github.com/Edasgh/TSLOG 
-[all the neccessary code files]
 
 
 # modern-gpt3-ui : 

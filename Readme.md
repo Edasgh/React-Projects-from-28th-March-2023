@@ -12,17 +12,16 @@ Source code: https://github.com/Edasgh/modern-gpt-3-ui
 
 Live Link : https://modern-gpt3-ui-responsive.netlify.app/
 
-# iNotebook(front-end): 
+# iNotebook: 
 
-Source code : https://github.com/Edasgh/inotebook
+Front-end Source code : https://github.com/Edasgh/inotebook
 
-Live link: Not live yet
+Back-end Source code : https://github.com/Edasgh/iNotebook-backend
 
-# iNotebook(back-end): [private]
-
-Source code : https://github.com/Edasgh/iNotebook-backend
 
 Live link: Not live yet
+
+
 
 # newsapp:
 

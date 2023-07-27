@@ -2,6 +2,8 @@ import React from "react";
 import { storage } from "../../Appwrite/appwrite_config";
 import { ID } from "appwrite";
 import { useNavigate } from "react-router-dom";
+import "dotenv/config";
+
 
 
 const UploadImages = () => {
@@ -12,7 +14,7 @@ const UploadImages = () => {
   const uploadImage = (e) => {
     e.preventDefault();
     const promise = storage.createFile(
-      "646b2fded75059954814",
+     process.env.BUCKET_ID,
       ID.unique(),
       document.getElementById("img").files[0]
     );

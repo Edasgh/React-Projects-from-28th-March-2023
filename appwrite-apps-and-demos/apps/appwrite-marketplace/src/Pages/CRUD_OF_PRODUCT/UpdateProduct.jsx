@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { databases, storage } from "../../Appwrite/appwrite_config";
+import "dotenv/config";
+
 
 const UpdateProduct = () => {
   const params = useParams();
@@ -15,8 +17,8 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     const promise = databases.getDocument(
-      "64688e0c85f3f147569a",
-      "64688e13df289f044dd5",
+       process.env.DB_ID,
+      process.env.COLL_ID,
       params.id
     );
     promise.then(
@@ -36,8 +38,8 @@ const UpdateProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     const promise = databases.updateDocument(
-      "64688e0c85f3f147569a",
-      "64688e13df289f044dd5",
+       process.env.DB_ID,
+      process.env.COLL_ID,
       params.id,
       {
         Name,
@@ -59,7 +61,7 @@ const UpdateProduct = () => {
   };
   useEffect(() => {
     setLoader(true);
-    const promise = storage.listFiles("646b2fded75059954814");
+    const promise = storage.listFiles(process.env.BUCKET_ID);
 
     promise.then(
       function (response) {
@@ -74,7 +76,7 @@ const UpdateProduct = () => {
   }, []);
 
   const fileHref = (id) => {
-    const result = storage.getFileView("646b2fded75059954814", id);
+    const result = storage.getFileView(process.env.BUCKET_ID, id);
     return result.href; // Resource URL
   };
   return (

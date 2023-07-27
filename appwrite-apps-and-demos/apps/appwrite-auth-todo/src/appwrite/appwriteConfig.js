@@ -1,15 +1,16 @@
 import { Account, Client, Databases } from "appwrite";
 
 const client = new Client();
+require('dotenv').config();
 
 client
-  .setEndpoint("http://localhost:8080/v1")
-  .setProject("64663ebbf282522594d9");
+  .setEndpoint(process.env.EP)
+  .setProject(process.env.PROJECT_ID);
 
 export const account = new Account(client);
 
 //database
 
 // export const databases = new Databases(client, DATABASE_ID);
-export const databases = new Databases(client,"64663f99f140b3707491")
+export const databases = new Databases(client,process.env.DB_ID)
 

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./Products.scss";
 import { useFetchProducts } from "../../hooks/useFetchproducts";
 import { getSession } from "../../hooks/getSession";
+import "dotenv/config";
 const Products = () => {
   const params = useParams();
   const { products, loader } = useFetchProducts(params.coll_id);
@@ -51,7 +52,7 @@ const Products = () => {
 
   const deleteProduct = (id) => {
     const promise = databases.deleteDocument(
-      "647592808a5c92596610",
+     process.env.PRODUCTDB_ID,
       params.coll_id,
       id
     );

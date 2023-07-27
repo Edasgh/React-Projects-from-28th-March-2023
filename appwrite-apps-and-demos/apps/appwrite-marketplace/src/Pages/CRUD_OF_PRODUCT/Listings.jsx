@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { databases } from "../../Appwrite/appwrite_config";
+import "dotenv/config";
+
 
 const Listings = () => {
   const [listings, setListings] = useState([]);
@@ -8,8 +10,8 @@ const Listings = () => {
   useEffect(() => {
     setLoader(true);
     const getListings = databases.listDocuments(
-      "64688e0c85f3f147569a",
-      "64688e13df289f044dd5"
+      process.env.DB_ID,
+      process.env.COLL_ID
     );
 
     getListings.then(
@@ -25,8 +27,8 @@ const Listings = () => {
 
   const deleteProduct = (id) => {
     const promise = databases.deleteDocument(
-      "64688e0c85f3f147569a",
-      "64688e13df289f044dd5",
+      process.env.DB_ID,
+      process.env.COLL_ID,
       id
     );
     promise.then(

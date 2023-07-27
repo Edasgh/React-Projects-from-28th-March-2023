@@ -1,5 +1,7 @@
 import { useState , useEffect  } from "react";
 import { databases } from "../Appwrite/appwrite_config";
+import "dotenv/config";
+
 
 export const useFetchProducts=(coll_id)=>{
     const [products, setProducts] = useState([]);
@@ -8,7 +10,7 @@ export const useFetchProducts=(coll_id)=>{
     useEffect(() => {
       setLoader(true);
       const getproducts = databases.listDocuments(
-        "647592808a5c92596610",
+        process.env.PRODUCTDB_ID,
         coll_id
       );
   

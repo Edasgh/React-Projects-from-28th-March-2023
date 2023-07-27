@@ -38,8 +38,6 @@ Source code : https://github.com/Edasgh/textreact
 Live link : Not live yet
 
 
-Live link : Not live yet
-
 ___________________________________________________________________________________________
 
 

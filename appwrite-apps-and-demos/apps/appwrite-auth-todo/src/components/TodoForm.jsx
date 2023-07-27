@@ -1,6 +1,8 @@
 import React, { useState} from "react";
 import { databases } from "../appwrite/appwriteConfig";
 import { v4 as uuidv4 } from "uuid";
+import "dotenv/config";
+
 
 const TodoForm = () => {
   const [todo, setTodo] = useState("");
@@ -8,8 +10,8 @@ const TodoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const promise = databases.createDocument(
-      "64663f99f140b3707491",
-      "64663fc269592731e80b",
+      process.env.DB_ID,
+      process.env.COLL_ID,
       uuidv4(),
       {
         todo,

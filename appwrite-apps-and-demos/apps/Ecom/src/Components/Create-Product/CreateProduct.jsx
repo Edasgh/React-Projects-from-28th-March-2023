@@ -3,6 +3,7 @@ import { account, databases, storage } from "../../Appwrite/appwrite_config";
 import { useNavigate , useParams } from "react-router-dom";
 import { ID, Permission, Role } from "appwrite";
 import "./CreateProduct.scss"
+import "dotenv/config";
 
 const CreateProduct = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const CreateProduct = () => {
     e.preventDefault();
   
     const promise = databases.createDocument(
-      "647592808a5c92596610",
+      process.env.PRODUCTDB_ID,
       params.id,
       ID.unique(),
       {

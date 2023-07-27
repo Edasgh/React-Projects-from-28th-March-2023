@@ -1,4 +1,5 @@
 const sdk = require('node-appwrite');
+require('dotenv').config();
 
 // Init SDK
 const client = new sdk.Client();

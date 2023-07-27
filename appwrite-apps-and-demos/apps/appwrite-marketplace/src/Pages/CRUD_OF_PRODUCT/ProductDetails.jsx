@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { databases } from "../../Appwrite/appwrite_config";
 import { useParams } from "react-router-dom";
+import "dotenv/config";
+
 
 const ProductDetails = () => {
   const params = useParams();
@@ -13,8 +15,8 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const promise = databases.getDocument(
-      "64688e0c85f3f147569a",
-      "64688e13df289f044dd5",
+      process.env.DB_ID,
+      process.env.COLL_ID,
       params.id
     );
     promise.then(

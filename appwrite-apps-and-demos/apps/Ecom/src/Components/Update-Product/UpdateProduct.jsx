@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { databases, storage } from "../../Appwrite/appwrite_config";
 import "./UpdateProduct.scss"
+import "dotenv/config";
+
 const UpdateProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const UpdateProduct = () => {
   useEffect(() => {
     setLoader(true)
     const promise = databases.getDocument(
-      "647592808a5c92596610",
+     process.env.PRODUCTDB_ID,
       params.coll_id,
       params.id
     );

@@ -6,7 +6,7 @@ const port = 8080;
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "#IDL23pop$46",
+  password: process.env.MYSQL_PW,
   database: "test",
 });
 
@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("<h1>Welcome to backend </h1>");
 });
 //If there is any auth problem
-//ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '#IDL23pop$46';
+//ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password using your password;
 
 //setting up middleware
 app.use(express.json())

@@ -1,6 +1,6 @@
 ## All the React or MERN projects outside this repo listed here: 
 
-#### The demo projects of this repo are the chatgt generated code files
+### The demo projects of this repo are the chatgt generated code files
 
  
  # TSLOG : [private]

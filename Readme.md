@@ -37,9 +37,7 @@ Source code : https://github.com/Edasgh/textreact
 
 Live link : Not live yet
 
-# my-first-redux-project: [private]
 
-Source code :https://github.com/Edasgh/my-first-redux-project
 
 Live link : Not live yet
 

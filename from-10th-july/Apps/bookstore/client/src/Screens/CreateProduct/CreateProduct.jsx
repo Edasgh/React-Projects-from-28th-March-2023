@@ -10,6 +10,7 @@ const CreateProduct = () => {
         <input
           type="text"
           className="form-control"
+          name="title"
           id="exampleFormControlInput1"
           placeholder="Book Title"
           required
@@ -22,6 +23,7 @@ const CreateProduct = () => {
         <input
           type="text"
           className="form-control"
+          name="price"
           id="exampleFormControlInput2"
           placeholder="Book Price"
           required
@@ -34,6 +36,7 @@ const CreateProduct = () => {
         <input
           type="text"
           className="form-control"
+          name="author_name"
           id="exampleFormControlInput3"
           placeholder="Author Name"
           required
@@ -45,6 +48,7 @@ const CreateProduct = () => {
         </label>
         <textarea
           className="form-control"
+          name="description"
           id="exampleFormControlTextarea1"
           rows="3"
           required
@@ -52,15 +56,13 @@ const CreateProduct = () => {
       </div>
       <div className="mb-3">
         <label htmlFor="exampleFormControlInput4" className="form-label">
-         Enter Related Tags : 
+         Enter Related Tag : 
         </label>
-        <input
-          type="text"
-          className="form-control"
-          id="exampleFormControlInput4"
-          placeholder="Tags : Spring , London etc."
-          required
-        />
+      <select name="tag" className="form-control"  id="exampleFormControlInput4" style={{width:"400px"}}  required>
+        <option value="seasonal">seasonal</option>
+        <option value="featured" selected>featured</option>
+        <option value="specials">specials</option>
+      </select>
       </div>
       <button type="submit" className="btn btn-primary">Create Product</button>
     </form>

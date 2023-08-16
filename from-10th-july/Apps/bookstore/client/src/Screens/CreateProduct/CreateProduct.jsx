@@ -11,7 +11,7 @@ const CreateProduct = () => {
           type="text"
           className="form-control"
           name="title"
-          id="exampleFormControlInput1"
+          id="exampleFormControlInput1 title"
           placeholder="Book Title"
           required
         />
@@ -24,7 +24,7 @@ const CreateProduct = () => {
           type="text"
           className="form-control"
           name="price"
-          id="exampleFormControlInput2"
+          id="exampleFormControlInput2 price"
           placeholder="Book Price"
           required
         />
@@ -36,8 +36,8 @@ const CreateProduct = () => {
         <input
           type="text"
           className="form-control"
-          name="author_name"
-          id="exampleFormControlInput3"
+          name="author"
+          id="exampleFormControlInput3 author"
           placeholder="Author Name"
           required
         />
@@ -49,7 +49,7 @@ const CreateProduct = () => {
         <textarea
           className="form-control"
           name="description"
-          id="exampleFormControlTextarea1"
+          id="exampleFormControlTextarea1 description"
           rows="3"
           required
         ></textarea>
@@ -58,7 +58,7 @@ const CreateProduct = () => {
         <label htmlFor="exampleFormControlInput4" className="form-label">
          Enter Related Tag : 
         </label>
-      <select name="tag" className="form-control"  id="exampleFormControlInput4" style={{width:"400px"}}  required>
+      <select name="tag" className="form-control"  id="exampleFormControlInput4 tag" style={{width:"400px"}}  required>
         <option value="seasonal">seasonal</option>
         <option value="featured" selected>featured</option>
         <option value="specials">specials</option>

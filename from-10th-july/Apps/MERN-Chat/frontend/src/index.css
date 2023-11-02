@@ -1,0 +1,12 @@
+/* Importing work sans light 300 */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+.App {
+  font-family: "Work Sans", sans-serif;
+
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(to right, #03034d, #04bfbf, #02b561);
+  background-position: center;
+  background-size: cover;
+}

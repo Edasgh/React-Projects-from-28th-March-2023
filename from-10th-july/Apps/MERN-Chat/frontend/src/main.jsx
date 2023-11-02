@@ -5,7 +5,7 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-// 1. import `ChakraProvider` component
+// 1. import `ChakraProvider` component for using chakra ui
 import { ChakraProvider } from "@chakra-ui/react";
 
 import HomePage from "./Pages/HomePage";
@@ -13,7 +13,7 @@ import ChatPage from "./Pages/ChatPage";
 
 const Layout = () => {
   return (
-    <div className="app">
+    <div className="App">
       <Outlet />
     </div>
   );

@@ -58,7 +58,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
   //find an user with the email
 
-  if (user) {
+  if (user && (await user.matchPassword(password))) {
     // if an user is found, send the response object to backend
     res.json({
       _id: user._id,

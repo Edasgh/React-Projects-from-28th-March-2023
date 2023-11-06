@@ -75,4 +75,21 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { registerUser, loginUser };
+// /api/user?search=eshita
+// this function can be used to search a single user too
+const getAllUsers = asyncHandler(async (req, res) => {
+  const keyword = req.query.search
+    ? {
+        $or: [
+          { name: { $regex: req.query.search, $options: "i" } },
+          { email: { $regex: req.query.search, $options: "i" } },
+        ],
+      }
+    : {};
+
+  // const users = await User.find(keyword).find({ _id: { $ne: req.user._id } });
+  const users = await User.find(keyword);
+  res.send(users);
+});
+
+module.exports = { registerUser, loginUser, getAllUsers };

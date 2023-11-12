@@ -10,11 +10,14 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import HomePage from "./Pages/HomePage";
 import ChatPage from "./Pages/ChatPage";
+import ChatProvider from "./Context/ChatProvider.jsx";
 
 const Layout = () => {
   return (
     <div className="App">
-      <Outlet />
+      <ChatProvider>
+        <Outlet />
+      </ChatProvider>
     </div>
   );
 };
@@ -39,10 +42,10 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ChakraProvider>
-      <RouterProvider router={router} />
-      <App />
-    </ChakraProvider>
-  </React.StrictMode>
+  // <ChatProvider>
+  <ChakraProvider>
+    <RouterProvider router={router} />
+    <App />
+  </ChakraProvider>
+  // </ChatProvider>
 );

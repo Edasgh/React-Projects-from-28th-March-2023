@@ -66,6 +66,7 @@ const Login = () => {
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
       navigate("/chats");
+      window.location.reload();
     } catch (error) {
       toast({
         title: "Error Occurred!",
@@ -132,6 +133,16 @@ const Login = () => {
           isLoading={loading}
         >
           Get guest user credentials
+        </Button>
+        <Button
+          colorScheme="green"
+          width="100%"
+          style={{ marginTop: 15 }}
+          onClick={() => {
+            navigate("/chats");
+          }}
+        >
+          ChatPage
         </Button>
       </VStack>
     </>

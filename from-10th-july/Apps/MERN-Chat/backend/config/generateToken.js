@@ -6,7 +6,7 @@ const jwt_secret = process.env.JWT_SECRET;
 
 const generateToken = (id) => {
   return jwt.sign({ id }, jwt_secret, {
-    expiresIn: "60d",
+    expiresIn: "7d",
   });
 };
 

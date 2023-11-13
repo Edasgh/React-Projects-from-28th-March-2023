@@ -71,14 +71,6 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, children }) => {
       setSelectedChat(data);
       setFetchAgain(!fetchAgain);
       setLoading(false);
-      toast({
-        title: "Chat updated successfully!",
-        description: "Chat updated!",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
     } catch (error) {
       toast({
         title: "Error in updating Chat!",
@@ -155,14 +147,6 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, children }) => {
       setSelectedChat(data);
       setFetchAgain(!fetchAgain);
       setRenameLoading(false);
-      toast({
-        title: "Group chat updated!",
-        description: "success",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "bottom-left",
-      });
 
       setGroupChatNm("");
     } catch (error) {

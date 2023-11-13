@@ -12,7 +12,7 @@ const chatModel = mongoose.Schema(
       type: String,
       trim: true,
     },
-    isGropChat: {
+    isGroupChat: {
       type: Boolean,
       default: false,
     },

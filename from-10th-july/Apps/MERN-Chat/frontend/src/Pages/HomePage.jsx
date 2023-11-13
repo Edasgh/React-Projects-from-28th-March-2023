@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 
-import Login from "../Components/Authetication/Login";
-import Signup from "../Components/Authetication/Signup";
+import Login from "../Components/Authentication/Login";
+import Signup from "../Components/Authentication/Signup";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {

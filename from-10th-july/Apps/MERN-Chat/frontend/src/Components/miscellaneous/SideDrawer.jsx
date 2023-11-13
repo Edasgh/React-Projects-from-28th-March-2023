@@ -124,6 +124,7 @@ const SideDrawer = () => {
         isClosable: true,
         position: "bottom-left",
       });
+      setLoadingChat(false);
     }
   };
 

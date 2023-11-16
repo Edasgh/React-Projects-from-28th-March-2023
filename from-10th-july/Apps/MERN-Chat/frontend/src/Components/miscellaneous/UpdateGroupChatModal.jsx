@@ -22,7 +22,12 @@ import UserListItem from "../UserAvatar/UserListItem";
 import { ChatState } from "../../Context/ChatProvider";
 import axios from "axios";
 
-const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, children }) => {
+const UpdateGroupChatModal = ({
+  fetchAgain,
+  setFetchAgain,
+  children,
+  fetchMessages,
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [loading, setLoading] = useState(false);
@@ -182,6 +187,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, children }) => {
         selectedChat.users.filter((sel) => sel._id !== userToRemove._id)
       );
       setFetchAgain(!fetchAgain);
+      fetchMessages();
       setLoading(false);
     } catch (error) {
       toast({
@@ -206,15 +212,34 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, children }) => {
           <ModalHeader>{selectedChat.chatName}</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            {selectedUsers.map((u) => (
+            {selectedChat.groupAdmin._id === user._id ? (
               <>
-                <UserBadgeItem
-                  key={u._id}
-                  user={u}
-                  handleFunction={() => handleRemove(u)}
-                />
+                {selectedUsers.map((u) => (
+                  <>
+                    <UserBadgeItem
+                      key={u._id}
+                      user={u}
+                      handleFunction={() => handleRemove(u)}
+                    />
+                  </>
+                ))}
               </>
-            ))}
+            ) : (
+              <>
+                {selectedUsers.map((u) => (
+                  <>
+                    <UserBadgeItem
+                      key={u._id}
+                      user={u}
+                      cursorProp={"not-allowed"}
+                      handleFunction={() => {
+                        return;
+                      }}
+                    />
+                  </>
+                ))}
+              </>
+            )}
             <FormControl
               display="flex"
               justifyContent="space-between"

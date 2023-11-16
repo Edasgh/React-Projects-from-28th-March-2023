@@ -25,7 +25,7 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
         `http://localhost:8080/api/chat`,
         config
       );
-      console.log(data);
+
       setChats(data);
     } catch (error) {
       toast({
@@ -72,7 +72,6 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
               display="flex"
               fontSize={{ base: "17px", md: "10px", lg: "17px" }}
               rightIcon={<AddIcon />}
-              key={user._id}
             >
               New Group Chat
             </Button>
@@ -109,6 +108,19 @@ const MyChats = ({ fetchAgain, setFetchAgain }) => {
                         <>{chat.chatName}</>
                       )}
                     </Text>
+                    {chat.latestMessage && (
+                      <Text fontSize="xs">
+                        <b>
+                          {chat.latestMessage.sender.name === user.name
+                            ? "You"
+                            : chat.latestMessage.sender.name}{" "}
+                          :{" "}
+                        </b>
+                        {chat.latestMessage.content.length > 50
+                          ? chat.latestMessage.content.substring(0, 51) + "..."
+                          : chat.latestMessage.content}
+                      </Text>
+                    )}
                   </Box>
                 ))}
               </Stack>

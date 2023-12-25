@@ -2,13 +2,17 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const colors = require("colors");
+// dummy data of fake chats
 const { chats } = require("./data/data");
+// mongodb credentials are defined here
 const connectDB = require("./config/db");
 
+// userAPIs, chatAPIs and messageAPIs are defined here
 const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 
+// error message to show if any user or chat is not found or any request has any error
 const { notFound, errorHandler } = require("./middlewares/errorMiddlewares");
 
 const app = express();
@@ -34,6 +38,8 @@ app.use(errorHandler);
 const server = app.listen(port, () => {
   console.log(`Server listening at port no. : ${port}`.yellow.bold);
 });
+
+//socket.io configuration starts
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,

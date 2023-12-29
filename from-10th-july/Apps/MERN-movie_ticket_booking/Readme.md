@@ -68,7 +68,7 @@ time and location. The user can display their booking history as a theatre ticke
 
 - Develop server-side logic for handling web requests
 
-QUICK TIP: Use RESTful APIs and handle JSON data
+- QUICK TIP: Use RESTful APIs and handle JSON data
 
 6. Database Implementation (Weeks 13-14)
 

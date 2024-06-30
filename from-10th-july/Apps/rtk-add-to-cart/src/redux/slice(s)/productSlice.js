@@ -23,11 +23,12 @@ const productSlice = createSlice({
         builder
 
         .addCase(fetchProducts.pending,(state,action)=>{
+            console.log(action.payload);
             state.status=STATUSES.LOADING
         })
 
         .addCase(fetchProducts.fulfilled,(state,action)=>{
-            
+            console.log(action.payload);
             state.data=action.payload
             state.status=STATUSES.IDLE
             
@@ -35,6 +36,7 @@ const productSlice = createSlice({
 
         .addCase(fetchProducts.rejected,(state,action)=>{
             state.status=STATUSES.ERROR
+            console.log(action.payload);
         })
 
     }

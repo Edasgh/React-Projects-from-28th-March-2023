@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useParams } from "react-router-dom";
 import { Grid2} from "@mui/material";
 
 import Header from "./components/layout/Header";
@@ -14,10 +14,25 @@ const Groups = lazy(() => import("./pages/Groups"));
 
 import not_found from "./assets/not_found.png";
 import LayoutLoader from "./components/layout/Loaders";
+import { sampleChats } from "./constants/sampleData";
+import Profile from "./components/shared/Profile";
 
 const user = true;
 
 const LayOut = () => {
+
+   const params = useParams();
+   const chatId = params.chatId;
+
+
+   const handleDeleteChat = (e, _id, groupChat)=>{
+    e.preventDefault();
+    console.log(e);
+    console.log(_id);
+    console.log(groupChat);
+    
+   }
+
   return (
     <ProtectRoutes user={user}>
       <Suspense fallback={<LayoutLoader />}>
@@ -37,17 +52,19 @@ const LayOut = () => {
             sx={{
               display: { xs: "none", sm: "block" },
             }}
-            width={"100%"}
+            width={"70%"}
             height={"100%"}
           >
-            <Chatlist />
+            <Chatlist chats={sampleChats} chatId={chatId} 
+            onlineUsers={["1","2"]} handleDeleteChat={handleDeleteChat} 
+             />
           </Grid2>
           <Grid2
             xs={12}
             sm={8}
             md={5}
             lg={6}
-            width={"100%"}
+            width={"160%"}
             height={"100%"}
             
           >
@@ -56,7 +73,7 @@ const LayOut = () => {
           <Grid2
             md={4}
             lg={3}
-            width={"100%"}
+            width={"90%"}
             height={"100%"}
             sx={{
               display: { xs: "none", md: "block" },
@@ -64,7 +81,7 @@ const LayOut = () => {
               bgcolor: "rgba(0,0,0,0.85)",
             }}
           >
-            <div>Last</div>
+           <Profile/>
           </Grid2>
         </Grid2>
       </Suspense>
@@ -92,7 +109,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "chat/:chatId",
+        path: "chats/:chatId",
         element: <Chat />,
       },
       {
